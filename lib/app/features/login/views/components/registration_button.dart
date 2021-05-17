@@ -1,6 +1,6 @@
 part of login_view;
 
-class _RegistrationButton extends StatelessWidget {
+class _RegistrationButton extends GetView<LoginController> {
   const _RegistrationButton({Key? key}) : super(key: key);
 
   @override
@@ -9,7 +9,10 @@ class _RegistrationButton extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text("Don't have an account ? "),
-        TextButton(onPressed: () {}, child: Text("register"))
+        TextButton(
+          onPressed: () => controller.goToRegistrationScreen(),
+          child: Text("register"),
+        )
       ],
     );
   }
