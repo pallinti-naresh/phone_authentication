@@ -9,7 +9,7 @@ import 'package:phone_authentication/app/features/registration/views/screens/reg
 part 'app_routes.dart';
 
 abstract class AppPages {
-  static const initial = Routes.home;
+  static const initial = Routes.login;
 
   static final routes = [
     GetPage(

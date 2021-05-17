@@ -1,14 +1,32 @@
+library home_view;
+
 import 'package:flutter/material.dart';
 
+part '../components/profile.dart';
+part '../components/drawer.dart';
+
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  HomeScreen({Key? key}) : super(key: key);
+
+  final GlobalKey<ScaffoldState> _key = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _key,
       appBar: AppBar(
-        title: Text("home"),
+        leading: IconButton(
+          color: Colors.grey,
+          icon: Icon(Icons.menu),
+          onPressed: () => _key.currentState!.openDrawer(),
+        ),
       ),
+      body: Column(
+        children: [
+          _Profile(),
+        ],
+      ),
+      drawer: _Drawer(),
     );
   }
 }
