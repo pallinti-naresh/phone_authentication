@@ -5,6 +5,10 @@ abstract class AppBasicTheme {
     return ThemeData(
       primarySwatch: Colors.blue,
       textTheme: TextTheme(bodyText2: TextStyle(color: Colors.grey[800])),
+      appBarTheme: AppBarTheme(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: Colors.grey[200],
