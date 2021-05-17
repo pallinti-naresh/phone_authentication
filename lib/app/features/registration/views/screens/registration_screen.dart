@@ -13,7 +13,7 @@ part '../components/register_button.dart';
 part '../components/login_button.dart';
 part '../components/name_field.dart';
 
-class RegistrationScreen extends StatelessWidget {
+class RegistrationScreen extends GetView<RegistrationController> {
   const RegistrationScreen({Key? key}) : super(key: key);
 
   @override
@@ -26,35 +26,38 @@ class RegistrationScreen extends StatelessWidget {
           SizedBox(
             width: Get.width,
             height: Get.height,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Spacer(flex: 6),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: _HeaderText(),
-                ),
-                Spacer(flex: 4),
-                _IllustrationImage(),
-                Spacer(flex: 4),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: _NameField(),
-                ),
-                Spacer(flex: 2),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: _PhoneNumberField(),
-                ),
-                Spacer(flex: 2),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: _RegisterButton(),
-                ),
-                Spacer(flex: 5),
-                _LoginButton(),
-                Spacer(flex: 2),
-              ],
+            child: Form(
+              key: controller.formKey,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Spacer(flex: 6),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: _HeaderText(),
+                  ),
+                  Spacer(flex: 4),
+                  _IllustrationImage(),
+                  Spacer(flex: 4),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: _NameField(),
+                  ),
+                  Spacer(flex: 2),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: _PhoneNumberField(),
+                  ),
+                  Spacer(flex: 2),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: _RegisterButton(),
+                  ),
+                  Spacer(flex: 5),
+                  _LoginButton(),
+                  Spacer(flex: 2),
+                ],
+              ),
             ),
           ),
         ]))
