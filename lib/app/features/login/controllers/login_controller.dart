@@ -5,4 +5,8 @@ class LoginController extends GetxController {
   void goToRegistrationScreen() {
     Get.offNamed(Routes.registration);
   }
+
+  void goToAuthenticationScreen() {
+    Get.toNamed(Routes.authentication);
+  }
 }

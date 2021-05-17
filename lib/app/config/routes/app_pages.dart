@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:phone_authentication/app/features/authentication/views/screens/authentication_screen.dart';
 import 'package:phone_authentication/app/features/login/bindings/login_binding.dart';
 import 'package:phone_authentication/app/features/login/views/screens/login_screen.dart';
 import 'package:phone_authentication/app/features/registration/bindings/registration_binding.dart';
@@ -19,6 +20,11 @@ abstract class AppPages {
       name: _Paths.registration,
       page: () => RegistrationScreen(),
       binding: RegistrationBinding(),
+    ),
+    GetPage(
+      name: _Paths.authentication,
+      page: () => AuthenticationScreen(),
+      transition: Transition.cupertino,
     )
   ];
 }
