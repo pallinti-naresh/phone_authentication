@@ -7,3 +7,9 @@ abstract class ImageVectorConstant {
   static const authenticationIllustration =
       _folder + "authentication_illustration.svg";
 }
+
+abstract class ImageRasterConstant {
+  static const _folder = "assets/images/raster/";
+
+  static const logoGiaDeveloper = _folder + "logo_gia_developer.png";
+}

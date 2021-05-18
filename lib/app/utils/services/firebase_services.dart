@@ -57,7 +57,6 @@ abstract class UserServices {
           .get()
           .then((result) {
         if (result.docs.length > 0) {
-          log("ok ok");
           registrant = Registrant(
             name: result.docs[0].data()['name'],
             phoneNumber: phoneNumber,
