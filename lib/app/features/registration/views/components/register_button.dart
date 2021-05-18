@@ -1,10 +1,13 @@
 part of registration_view;
 
-class _RegisterButton extends StatelessWidget {
+class _RegisterButton extends GetView<RegistrationController> {
   const _RegisterButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(onPressed: () {}, child: Text("Register"));
+    return ElevatedButton(
+      onPressed: () => controller.register(),
+      child: Text("Register"),
+    );
   }
 }

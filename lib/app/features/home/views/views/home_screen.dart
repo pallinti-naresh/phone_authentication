@@ -1,6 +1,8 @@
 library home_view;
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:phone_authentication/app/features/home/controllers/home_controller.dart';
 
 part '../components/profile.dart';
 part '../components/drawer.dart';

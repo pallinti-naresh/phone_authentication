@@ -1,6 +1,6 @@
 part of authentication_view;
 
-class _ResendButton extends StatelessWidget {
+class _ResendButton extends GetView<AuthenticationController> {
   const _ResendButton({Key? key}) : super(key: key);
 
   @override
@@ -9,9 +9,15 @@ class _ResendButton extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text("Didn't receive the code ? "),
-        TextButton(
-          onPressed: () {},
-          child: Text("resend (30)"),
+        Obx(
+          () => TextButton(
+            onPressed: (controller.isCanResendCode.value)
+                ? () => controller.verifyPhoneNumber()
+                : null,
+            child: Text((controller.durationCountdown.value) > 0
+                ? "resend (${controller.durationCountdown.value})"
+                : "resend"),
+          ),
         )
       ],
     );

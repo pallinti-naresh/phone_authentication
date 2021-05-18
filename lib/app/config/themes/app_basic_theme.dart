@@ -12,6 +12,8 @@ abstract class AppBasicTheme {
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: Colors.grey[200],
+        errorStyle: TextStyle(fontSize: 0),
+        errorMaxLines: 1,
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(color: Colors.transparent),
           borderRadius: BorderRadius.circular(30),
@@ -21,6 +23,11 @@ abstract class AppBasicTheme {
           borderRadius: BorderRadius.circular(30),
         ),
         errorBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.redAccent),
+          borderRadius: BorderRadius.circular(30),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.grey),
           borderRadius: BorderRadius.circular(30),
         ),
       ),
