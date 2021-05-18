@@ -3,6 +3,7 @@ import 'dart:developer';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:phone_authentication/app/config/routes/app_pages.dart';
 import 'package:phone_authentication/app/utils/services/firebase_services.dart';
@@ -51,7 +52,12 @@ class AuthenticationController extends GetxController {
         },
         verificationFailed: (FirebaseAuthException e) {
           isLoading.value = false;
-          Get.snackbar("Verification Failed", e.code);
+          Get.snackbar(
+            "Verification Failed",
+            e.code,
+            backgroundColor: Colors.white,
+            snackPosition: SnackPosition.BOTTOM,
+          );
         },
         codeSent: (verificationId, forceResendingToken) async {
           log("verify phone number : code success send");
@@ -86,7 +92,12 @@ class AuthenticationController extends GetxController {
           }
         } else {
           /// authentication faileed
-          Get.snackbar("Invalid Code", "Please enter the correct code");
+          Get.snackbar(
+            "Invalid Code",
+            "Please enter the correct code",
+            backgroundColor: Colors.white,
+            snackPosition: SnackPosition.BOTTOM,
+          );
         }
       }
     }
