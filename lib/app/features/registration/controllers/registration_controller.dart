@@ -15,6 +15,11 @@ class RegistrationController extends GetxController {
 
   void register() async {
     if (formKey.currentState!.validate()) {
+      Get.toNamed(
+        Routes.authentication,
+        arguments: Registrant(name: name.text, phoneNumber: phoneNumber.text),
+      );
+      /*
       UserServices.phoneNumberExists(phoneNumber.text.trim(), onError: (_) {})
           .then((exist) {
         if (exist) {
@@ -23,10 +28,12 @@ class RegistrationController extends GetxController {
           Get.snackbar("Sending OTP", "check your message");
           Get.toNamed(
             Routes.authentication,
-            arguments: User(name: name.text, phoneNumber: phoneNumber.text),
+            arguments:
+                Registrant(name: name.text, phoneNumber: phoneNumber.text),
           );
         }
       });
+      */
     }
   }
 }

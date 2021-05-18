@@ -1,6 +1,6 @@
 part of home_view;
 
-class _Drawer extends StatelessWidget {
+class _Drawer extends GetView<HomeController> {
   const _Drawer({Key? key}) : super(key: key);
 
   @override
@@ -12,7 +12,7 @@ class _Drawer extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.logout),
             title: Text("Logout"),
-            onTap: () {},
+            onTap: () => controller.logout(),
           ),
         ],
       ),

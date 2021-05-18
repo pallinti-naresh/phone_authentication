@@ -31,7 +31,7 @@ abstract class UserServices {
   }
 
   static void addUser(
-    User data, {
+    Registrant data, {
     Function()? onSuccess,
     Function(Object)? onError,
   }) async {
@@ -48,9 +48,9 @@ abstract class UserServices {
   }
 }
 
-class User {
+class Registrant {
   String name;
   String phoneNumber;
 
-  User({required this.name, required this.phoneNumber});
+  Registrant({required this.name, required this.phoneNumber});
 }

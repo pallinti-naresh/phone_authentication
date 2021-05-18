@@ -1,6 +1,6 @@
 part of authentication_view;
 
-class _HeaderText extends StatelessWidget {
+class _HeaderText extends GetView<AuthenticationController> {
   const _HeaderText({Key? key}) : super(key: key);
 
   @override
@@ -14,7 +14,9 @@ class _HeaderText extends StatelessWidget {
               TextSpan(style: Theme.of(context).textTheme.bodyText2, children: [
             TextSpan(text: "Please enter the code sent to "),
             TextSpan(
-                text: "082118477700",
+                text: controller.phoneNumber ??
+                    controller.registrant?.phoneNumber ??
+                    "",
                 style: Theme.of(context)
                     .textTheme
                     .headline6!
