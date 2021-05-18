@@ -51,8 +51,7 @@ class AuthenticationController extends GetxController {
         },
         verificationFailed: (FirebaseAuthException e) {
           isLoading.value = false;
-          Get.snackbar("Verification Failed", e.code,
-              snackPosition: SnackPosition.BOTTOM);
+          Get.snackbar("Verification Failed", e.code);
         },
         codeSent: (verificationId, forceResendingToken) async {
           log("verify phone number : code success send");
@@ -70,24 +69,25 @@ class AuthenticationController extends GetxController {
     if (formKey.currentState!.validate() && verificationId != null) {
       isLoading.value = true;
 
-      var _credential = PhoneAuthProvider.credential(
-          verificationId: verificationId!, smsCode: otp.text);
+      try {
+        await _auth.signInWithCredential(PhoneAuthProvider.credential(
+            verificationId: verificationId!, smsCode: otp.text));
+      } catch (e) {
+        print("invalid code");
+      } finally {
+        isLoading.value = false;
 
-      await _auth.signInWithCredential(_credential);
-
-      isLoading.value = false;
-
-      if (_auth.currentUser != null) {
-        /// authentication success
-        if (registrant != null) {
-          _saveRegistrantAndGoToHome();
+        if (_auth.currentUser != null) {
+          /// authentication success
+          if (registrant != null) {
+            _saveRegistrantAndGoToHome();
+          } else {
+            _goToHome();
+          }
         } else {
-          _goToHome();
+          /// authentication faileed
+          Get.snackbar("Invalid Code", "Please enter the correct code");
         }
-      } else {
-        /// authentication faileed
-        Get.snackbar("Invalid Code", "Please enter the correct code",
-            snackPosition: SnackPosition.BOTTOM);
       }
     }
   }

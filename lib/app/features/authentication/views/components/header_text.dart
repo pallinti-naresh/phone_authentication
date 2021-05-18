@@ -7,7 +7,7 @@ class _HeaderText extends GetView<AuthenticationController> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text("Verfication Code", style: Theme.of(context).textTheme.headline5),
+        Text("Verification Code", style: Theme.of(context).textTheme.headline5),
         SizedBox(height: 5),
         RichText(
           text:
@@ -16,7 +16,7 @@ class _HeaderText extends GetView<AuthenticationController> {
             TextSpan(
                 text: controller.phoneNumber ??
                     controller.registrant?.phoneNumber ??
-                    "",
+                    "-",
                 style: Theme.of(context)
                     .textTheme
                     .headline6!
