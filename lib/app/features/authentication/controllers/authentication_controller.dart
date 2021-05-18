@@ -18,7 +18,7 @@ class AuthenticationController extends GetxController {
   String? verificationId;
   final isLoading = true.obs;
 
-  final _durationTimeOut = Duration(seconds: 10);
+  final _durationTimeOut = Duration(seconds: 60);
   final isCanResendCode = false.obs;
   final durationCountdown = 0.obs;
 
