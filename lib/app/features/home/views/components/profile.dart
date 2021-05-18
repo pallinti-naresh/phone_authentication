@@ -1,15 +1,21 @@
 part of home_view;
 
-class _Profile extends StatelessWidget {
+class _Profile extends GetView<HomeController> {
   const _Profile({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: ListTile(
-        title: Text("name"),
-        subtitle: Text("082118477700"),
-      ),
+    return Obx(
+      () => controller.isLoading.value
+          ? Align(
+              alignment: Alignment.topCenter,
+              child: CircularProgressIndicator())
+          : Card(
+              child: ListTile(
+                title: Text(controller.user.value?.name ?? "-"),
+                subtitle: Text(controller.user.value?.phoneNumber ?? "-"),
+              ),
+            ),
     );
   }
 }

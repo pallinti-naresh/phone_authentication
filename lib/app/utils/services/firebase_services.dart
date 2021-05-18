@@ -46,6 +46,27 @@ abstract class UserServices {
           },
     );
   }
+
+  static Future<Registrant?> getUserLogin() async {
+    Registrant? registrant;
+    if (_auth.currentUser != null) {
+      var phoneNumber = _auth.currentUser!.phoneNumber!;
+      await _firestore
+          .collection('users')
+          .where('phone_number', isEqualTo: phoneNumber)
+          .get()
+          .then((result) {
+        if (result.docs.length > 0) {
+          log("ok ok");
+          registrant = Registrant(
+            name: result.docs[0].data()['name'],
+            phoneNumber: phoneNumber,
+          );
+        }
+      }).catchError((_) {});
+    }
+    return registrant;
+  }
 }
 
 class Registrant {
