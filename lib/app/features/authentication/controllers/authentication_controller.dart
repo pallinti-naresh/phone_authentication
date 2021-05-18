@@ -52,6 +52,7 @@ class AuthenticationController extends GetxController {
         },
         verificationFailed: (FirebaseAuthException e) {
           isLoading.value = false;
+          isCanResendCode.value = true;
           Get.snackbar(
             "Verification Failed",
             e.code,
