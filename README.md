@@ -12,4 +12,5 @@ remove rechapta ?
 1. go to -> https://console.cloud.google.com/apis/library/androidcheck.googleapis.com
 2. select project 
 3. enable android device verification
+
 note: rechapta required if using emulator
