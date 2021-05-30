@@ -1,7 +1,9 @@
 # phone_authentication
 This is an example of a phone authentication project using firebase
 
+
 Setup Package
+
 if you getting error on code, you must getting all packages
 1. open terminal
 2. type "flutter pub get"
